@@ -1,7 +1,7 @@
 const express=require('express')
 const mongoose=require('mongoose')
 const dotenv=require('dotenv');
-// const urlRoutes = require('./routes/urlRoutes');
+const urlRoutes = require('./routes/urlRoutes');
 
 const cors = require('cors'); 
 
@@ -17,9 +17,9 @@ app.use(cors());
 app.get('/', (req, res) => {
     res.send('Hello');
   });
+  app.use('/', urlRoutes); // Integrate the URL routes
 
-
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 5001;
 
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
