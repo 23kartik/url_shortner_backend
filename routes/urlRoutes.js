@@ -1,11 +1,10 @@
 const express = require('express');
 const router = express.Router();
-const urlController = require('../controllers/urlController');
+const { shortenUrl,bulkShortenUrls, redirectUrl, handlePostRedirect } = require('../controllers/urlController');
 
-// Route to shorten URL
-router.post('/shorten', urlController.shortenUrl);
-
-// Route to redirect URL
-router.get('/:shortCode', urlController.redirectUrl);
+router.post('/shorten', shortenUrl);
+router.post('/bulk-shorten', bulkShortenUrls); 
+router.get('/:shortCode', redirectUrl);
+router.post('/:shortCode', handlePostRedirect); // Handle POST requests for password submission
 
 module.exports = router;
