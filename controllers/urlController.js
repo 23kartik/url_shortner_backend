@@ -22,7 +22,7 @@ const shortenUrl = asyncHandler(async (req, res) => {
             shortCode = shortid.generate();
         }
 
-        const shortUrl = `http://localhost:${process.env.PORT}/${shortCode}`;
+        const shortUrl = `https://url-shortner-backend-xnt3.onrender.com/${shortCode}`;
         const hashedPassword = password ? await bcrypt.hash(password, 10) : undefined;
 
         const url = new Url({
@@ -304,7 +304,7 @@ const bulkShortenUrls = asyncHandler(async (req, res) => {
                 shortCode = shortid.generate();
             }
 
-            const shortUrl = `http://localhost:${process.env.PORT}/${shortCode}`;
+            const shortUrl = `https://url-shortner-backend-xnt3.onrender.com/${shortCode}`;
             const hashedPassword = password ? await bcrypt.hash(password, 10) : undefined;
 
             const url = new Url({
